@@ -20,13 +20,11 @@ pre_body = ''
 def climbNumber():
     climb_number = input("What number route is this? /n > ")
     answer_string = str(climb_number)
-    while climb_number:
-        #if there is text in the input,instead of an alphanumeric, then tell them they must put in a number.
-        if str.isnumeric(answer_string):
-            break
-        else:
-            print("You must enter a number. Try again.  ")
-            climbNumber()
+    if str.isnumeric(answer_string):
+        break
+    else:
+        print("You must enter a number. Try again.  ")
+        climbNumber()
 
 
 def wallType():
