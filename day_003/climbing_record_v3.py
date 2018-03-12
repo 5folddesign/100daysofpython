@@ -6,77 +6,60 @@
 
 
 import csv
-#import the datetime library.
-csvFile = open('/Users/laptop/github/100daysofpython/day_001/climbinglog.csv','a',newline='')
-csvWriter = csv.writer(csvFile,delimiter=',',lineterminator='\n\n')
-#add functions for each question.
+csvFile = open('climbinglog.csv','a',newline='')  # Opens a file in write mode
+csvWriter = csv.writer(csvFile,delimiter=',',lineterminator='\n\n')  # Creates a Writer object
+
 climb_number = ''
 wall_type = ''
 grade = ''
 pre_heart = ''
 pre_body = ''
 
-
 def climbNumber():
-    climb_number = input("What number route is this? /n > ")
-    answer_string = str(climb_number)
-    if str.isnumeric(answer_string):
+    climb_number = input("What number is this climb? \n")
+    while climb_number.isnumeric():
         break
     else:
-        print("You must enter a number. Try again.  ")
+        print("You must enter a number. Try again.")
         climbNumber()
 
-
 def wallType():
-    wall_type = input("What type of wall was the route on?  ")
-    while wall_type:
-        #if there is text in the input,instead of an alphanumeric, then tell them they must put in a number.
-        if str.isalpha(wall_type):
-            return wall_type
-        else:
-            print("You entered a number, you must enter a word. Try again.  ")
-            wallType()
+    wall_type = input("What type of wall was the route on? \n")
+    while wall_type.isalpha():
+        break
+    else:
+        print("You entered a number, you must enter a word. Try again.")
+        wallType()
 
-
-def grade():
-    grade = input("What was the grade of the route?")
-    answer_string = str(grade)
-    while grade:
-        #if there is text in the input,instead of an alphanumeric, then tell them they must put in a number.
-        if answer_string:
-            break
-        else:
-            print("You must enter a number. Try again.  ")
-            grade()
-
+def grade_():
+    grade = input("What was the grade of the route? \n")
+    while grade.isnumeric():
+        break
+    else:
+        print("You must enter a number. Try again.")
+        grade_()
 
 def preBody():
-    pre_body = input("On a scale of 1-10, how difficult did this route feel on your body?")
-    answer_string = str(pre_body)
-    while pre_body:
-        #if there is text in the input,instead of an alphanumeric, then tell them they must put in a number.
-        if str.isnumeric(answer_string):
-            break
-        else:
-            print("You must enter a number. Try again.  ")
-            preBody()
-
+    pre_body = input("On a scale of 1-10, how difficult did this route feel on your body? \n")
+    while pre_body.isnumeric():
+        break
+    else:
+        print("You must enter a number. Try again.")
+        preBody()
 
 def preHeart():
-    pre_heart = input("On a scale of 1-10, how difficult did this route feel on your heart?")
-    answer_string = str(pre_heart)
-    while pre_heart:
-        #if there is text in the input,instead of an alphanumeric, then tell them they must put in a number.
-        if str.isnumeric(answer_string):
-            break
-        else:
-            print("You must enter a number. Try again.  ")
-            preHeart()
+    pre_heart = input("On a scale of 1-10, how difficult did this route feel on your heart? \n")
+    while pre_heart.isnumeric():
+        break
+    else:
+        print("You must enter a number. Try again.")
+        preHeart()
 
 climbNumber()
 wallType()
-grade()
+grade_()
 preBody()
 preHeart()
 
-csvWriter.writerow([climb_number,wall_type,grade,pre_body,pre_heart])
+csvWriter.writerow([climb_number, wall_type, grade, pre_body, pre_heart])
+csvFile.close()
